@@ -37,12 +37,7 @@ urlpatterns = (
         name='firefox'),
     url(r'^firefox/(?:%s/)?(?:%s/)?all/$' % (platform_re, channel_re),
         views.all_downloads, name='firefox.all'),
-    page('firefox/accounts', 'firefox/accounts.html'),
-    url('^firefox/accounts/features/$',
-        VariationTemplateView.as_view(
-            template_name='firefox/accounts-features.html',
-            template_context_variations=['a', 'b']),
-            name='firefox.accounts-features'),
+    url(r'^firefox/accounts/', views.firefox_accounts, name='firefox.accounts'),
     page('firefox/channel/desktop', 'firefox/channel/desktop.html'),
     page('firefox/channel/android', 'firefox/channel/android.html'),
     page('firefox/channel/ios', 'firefox/channel/ios.html'),
