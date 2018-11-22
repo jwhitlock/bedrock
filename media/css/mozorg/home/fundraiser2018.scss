@@ -59,39 +59,45 @@ $image-path: '/media/protocol/img';
 
 .c-fundraiser-options {
     label {
+        @include open-sans;
+        margin: 0 $spacing-xs $spacing-md;
         display: inline-block;
-        margin: 0 $spacing-sm $spacing-md 0;
         position: relative;
 
         &:first-child {
-            margin-left: 0;
+            @include bidi(((margin-left, 0, $spacing-xs),(margin-right, $spacing-xs, 0)));
         }
     }
 
     @media #{$mq-md} {
-        display: inline;
-        margin: 0 1em 0 0;
+        @include bidi(((margin-right, $spacing-md, 0),(margin-left, 0, $spacing-md)));
+        display: inline-block;
     }
 }
 
 // Close button
 .c-fundraiser-close {
+    @include image-replaced;
     @include bidi(((right, $spacing-sm, auto), (left, auto, $spacing-sm)));
-    background-size: 18px 18px;
-    background: transparent url('/media/img/notification/close.svg') center center no-repeat;
-    border-radius: 50%;
+    background: transparent url('#{$image-path}/icons/ui/close-white.svg') center center no-repeat;
+    @include background-size(16px 16px);
     border: none;
     display: none;
-    height: 30px;
-    padding: 6px;
+    height: 42px;
+    min-width: 0;
+    padding: 0;
     position: absolute;
     top: $spacing-sm;
-    transition: background-color 200ms ease-in-out;
-    width: 30px;
+    width: 42px;
 
-    &:focus,
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.3);
+    &:hover,
+    &:focus {
+        @include transition(transform .1s ease-in-out);
+        @include transform(scale(1.1));
+    }
+
+    &:focus {
+        outline: 1px dotted $color-white;
     }
 
     // hide the 'Close' text

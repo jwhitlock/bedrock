@@ -5,13 +5,13 @@
 <aside class="c-fundraiser" id="fundraiser">
   <button type="button" class="c-fundraiser-close"><span>{{ _('Close') }}</span></button>
   <div class="content mzp-l-content">
-    <h1 class="c-fundraiser-title">
+    <h2 class="c-fundraiser-title">
       {{ _('We all love the web. Join Mozilla in defending it.') }}
-    </h1>
+    </h2>
 
     <div class="c-fundraiser-content">
       <p>
-      {% if LANG == 'en-US' %}
+      {% if LANG.startswith('en') %}
         Let’s protect the world’s largest public resource for future
         generations. A few times a year, Mozilla asks for donations. Chip in to
         help us keep the web healthy, wonderful and welcoming to all.
